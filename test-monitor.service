@@ -1,0 +1,16 @@
+[Unit]
+Description=Test process monitoring loop
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/test_monitor.sh
+Restart=always
+RestartSec=60s
+User=root
+Group=root
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target
